@@ -3,14 +3,14 @@ require('dotenv').config();
 const Web3 = require('web3');
 const fs = require('fs');
 
-// Initialize your endpoint URL for web3.js, wallet address, and private key
+// Initialize your endpoint URL for Web3.js, wallet address, and private key
 const web3 = new Web3(Web3.givenProvider || process.env.ENDPOINT_URL);
 const address = process.env.PUBLIC_KEY;
 const privKey = process.env.PRIVATE_KEY;
 
 // Initialize the contents of the locally compiled contract ABI and bytecode
-var contractABI = JSON.parse(fs.readFileSync('./MFMNFT_sol_MyFirstMusicNFT.abi', 'utf8'));
-var contractBIN = fs.readFileSync('./MFMNFT_sol_MyFirstMusicNFT.bin', 'utf8');
+var contractABI = JSON.parse(fs.readFileSync('./contract/MFMNFT_sol_MyFirstMusicNFT.abi', 'utf8'));
+var contractBIN = fs.readFileSync('./contract/MFMNFT_sol_MyFirstMusicNFT.bin', 'utf8');
 
 // Create asynchronous deploy function
 const deploy = async () => {

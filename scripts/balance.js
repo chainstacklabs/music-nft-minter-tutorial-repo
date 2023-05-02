@@ -2,7 +2,7 @@
 require('dotenv').config();
 const Web3 = require('web3');
 
-// Initialize your endpoint URL for web3.js and wallet address
+// Initialize your endpoint URL for Web3.js and wallet address
 const web3 = new Web3(Web3.givenProvider || process.env.ENDPOINT_URL);
 const address = process.env.PUBLIC_KEY;
 

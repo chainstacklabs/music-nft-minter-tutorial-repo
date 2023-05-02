@@ -3,11 +3,11 @@ require('dotenv').config();
 const Web3 = require('web3');
 const fs = require('fs');
 
-// Initialize your endpoint URL for web3.js, wallet address, private key, deployed smart contract ABI, and JSON metadata URL
+// Initialize your endpoint URL for Web3.js, wallet address, private key, deployed smart contract ABI, and JSON metadata URL
 const address = process.env.PUBLIC_KEY;
 const privKey = process.env.PRIVATE_KEY;
 const contractAdrs = process.env.CONTRACT_KEY;
-const contractNFT = JSON.parse(fs.readFileSync('./MFMNFT_sol_MyFirstMusicNFT.abi', 'utf8'));
+const contractNFT = JSON.parse(fs.readFileSync('./contract/MFMNFT_sol_MyFirstMusicNFT.abi', 'utf8'));
 const web3 = new Web3(Web3.givenProvider || process.env.ENDPOINT_URL);
 const metadata = 'https://ipfsgw.com/ipfs/QmX5mrBWukdWVByxnoUS4GJTysVBFjjoVg1fgSjExNV7Dd';
 
