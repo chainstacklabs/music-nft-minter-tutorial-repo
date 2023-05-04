@@ -21,7 +21,7 @@
   <a target="_blank" href="https://console.chainstack.com/user/account/create">Start for free</a> •
 </p>
 
-# Music NFT minter tutorial
+# Music NFT minter tutorial [![using with dotenv-vault](https://badge.dotenv.org/using.svg?r=1)](https://www.dotenv.org/r/github.com/motdotla/dotenv?r=1)
 This project contains all tutorial files from the "How to mint a music NFT: Dropping fire tunes with Chainstack IPFS" guide, originally published on the Chainstack blog.
 
 Find the full tutorial article available on the Chainstack blog:
