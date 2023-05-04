@@ -7,12 +7,12 @@ const FormData = require('form-data');
 // Define the media files to be uploaded
 const content = [
   {
-    file: fs.createReadStream("./src/My First Music NFT Cover.png"),
-    title: "My First Music NFT Cover.png"
+    file: fs.createReadStream("./src/(Sample) My First Music NFT Cover.png"),
+    title: "(Sample) My First Music NFT Cover.png"
   },
   {
-    file: fs.createReadStream("./src/PetarISFire - Chainstackwave.mp3"),
-    title: "PetarISFire - Chainstackwave.mp3"
+    file: fs.createReadStream("./src/(Sample) PetarISFire - Chainstackwave.mp3"),
+    title: "(Sample) PetarISFire - Chainstackwave.mp3"
   }
 ];
 
@@ -154,8 +154,8 @@ const writeJSON = async (uploadCID, uploadName) => {
       }
     }
 
-    // Write the metadata to the file ./src/metadata.json
-    fs.writeFileSync('./src/metadata.json', JSON.stringify({
+    // Write the metadata to the file ./src/NFTmetadata.json
+    fs.writeFileSync('./src/NFTmetadata.json', JSON.stringify({
       "description": "My first music NFT mint.",
       "external_url": "https://chainstack.com/nfts/",
       "image": coverIPFS,
@@ -164,10 +164,10 @@ const writeJSON = async (uploadCID, uploadName) => {
     }));
 
     let jsonMeta;
-    if (fs.existsSync('./src/metadata.json')) {
+    if (fs.existsSync('./src/NFTmetadata.json')) {
       jsonMeta = {
-        file: fs.createReadStream('./src/metadata.json'),
-        title: "metadata.json"
+        file: fs.createReadStream('./src/NFTmetadata.json'),
+        title: "NFTmetadata.json"
       };
     }
     return jsonMeta;
@@ -189,7 +189,7 @@ const uploadNFT = async () => {
     const id = await addFiles([jsonMeta], true);
     await new Promise((resolve) => setTimeout(resolve, 5000));
 
-    const [jsonCID, jsonName] = await findCIDs(id, true);
+    const jsonCID = await findCIDs(id, true);
     console.log('NFT metadata successfully uploaded to Chainstack IPFS!\n');
     console.log('Copy this URL and set it as value for the "metadata" variable in the "mint.js" script file:\n' + 'https://ipfsgw.com/ipfs/' + jsonCID);
   } catch (error) {
