@@ -5,7 +5,11 @@
     "@openzeppelin/contracts": "^4.8.0",
     "axios": "^1.2.1",
     "dotenv": "^16.0.3",
-    "form-data": "^4.0.0",
-    "web3": "^1.8.1"
+    "form-data": "^4.0.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-verify": "^1.0.1",
+    "@nomiclabs/hardhat-web3": "^2.0.0",
+    "web3": "^1.10.0"
   }
 }

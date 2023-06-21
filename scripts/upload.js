@@ -27,14 +27,14 @@ const addFiles = async (source, single = false) => {
   // Define the upload metadata
   const data = new FormData();
   if (single) {
-    console.log('Attempting to upload ' + JSON.stringify(source[0].title) + ' to Chainstack IPFS...');
+    console.log(`Attempting to upload ${JSON.stringify(source[0].title)} to Chainstack IPFS...\n`);
     data.append('bucket_id', process.env.BUCKET_ID);
     data.append('folder_id', process.env.FOLDER_ID);
     data.append('file', source[0].file);
     data.append('title', source[0].title);
   } else {
     source.forEach((file) => {
-      console.log('Attempting to upload ' + JSON.stringify(file.title) + ' to Chainstack IPFS...');
+      console.log(`Attempting to upload ${JSON.stringify(file.title)} to Chainstack IPFS...\n`);
       data.append('bucket_id', process.env.BUCKET_ID);
       data.append('folder_id', process.env.FOLDER_ID);
       data.append('file', file.file);
@@ -74,8 +74,8 @@ const findCIDs = async (fileID, single = false) => {
   }
 
   // Define the maximum retries and the timeout between retries
-  const maxRetries = 3;
-  const retryTimeout = 11000;
+  const maxRetries = 5;
+  const retryTimeout = 22000;
 
   if (!single) {
     let cid = [];
@@ -91,7 +91,7 @@ const findCIDs = async (fileID, single = false) => {
     }
 
     // Print the CIDs found and return the cid and name values
-    console.log('All CIDs found:' + cid + '\n');
+    console.log(`All CIDs found: ${cid.join(', ')}\n`);
     return [cid, name];
   } else {
     let cid;
@@ -101,7 +101,7 @@ const findCIDs = async (fileID, single = false) => {
     // Set up the retry loop
     while (retries < maxRetries) {
       try {
-        console.log('Attempting to find CID via public ID: ' + fileID + ' on Chainstack IPFS...');
+        console.log(`Attempting to find CID via public ID: ${fileID} on Chainstack IPFS...\n`);
 
         // Define the Axios configuration
         const url = "https://api.chainstack.com/v1/ipfs/pins/" + fileID;
@@ -111,12 +111,14 @@ const findCIDs = async (fileID, single = false) => {
           headers: {
             "Content-Type": 'text/plain',
             "Authorization": process.env.CHAINSTACK_JWT,
+            "Accept-Encoding": 'identity',
           },
+          decompress: false 
         };
 
         // Store the Axios response
         const response = await axios(config);
-        console.log('CID found:' + response.data.cid + ' Filename: ' + response.data.title + '\n');
+        console.log(`CID found: ${response.data.cid} Filename: ${response.data.title}\n`);
 
         cid = response.data.cid;
         name = response.data.title;
@@ -130,7 +132,7 @@ const findCIDs = async (fileID, single = false) => {
           throw new Error('CID or name values are not valid.');
         }
       } catch (error) {
-        console.error(`Error in findCIDs: ${error.message}. Attempting to retry...\n`);
+        console.error(`Error in findCIDs: ${error.message}.. Attempting to retry...\n`);
 
         // Retry after the timeout if unsuccessful
         retries++;
@@ -190,12 +192,12 @@ const uploadNFT = async () => {
     await new Promise((resolve) => setTimeout(resolve, 5000));
 
     const jsonCID = await findCIDs(id, true);
-    console.log('NFT metadata successfully uploaded to Chainstack IPFS!\n');
-    console.log('Copy this URL and set it as value for the "metadata" variable in the "mint.js" script file:\n' + 'https://ipfsgw.com/ipfs/' + jsonCID);
+    console.log(`NFT metadata successfully uploaded to Chainstack IPFS!\n`);
+    console.log(`Copy this line to your "mint.js" script file:\n\nconst metadata = "https://ipfsgw.com/ipfs/${jsonCID[0]}"\n`);
   } catch (error) {
-    console.error('Error during NFT upload:', error.message);
+    console.error(`Error during NFT upload: ${error.message}`);
   }
 };
 
-// Don't forget to call the main function!
+// Don't forget to run the main function!
 uploadNFT();
