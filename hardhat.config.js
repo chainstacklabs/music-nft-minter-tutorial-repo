@@ -1,4 +1,4 @@
-require("dotenv").config({ path: ".env" });
+require("dotenv").config();
 require("@nomiclabs/hardhat-web3");
 require("@nomicfoundation/hardhat-verify");
 

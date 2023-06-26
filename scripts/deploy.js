@@ -16,6 +16,7 @@ const contractArtifact = JSON.parse(fs.readFileSync(artifactPath, 'utf-8'));
 const contractABI = contractArtifact.abi;
 const contractBIN = contractArtifact.bytecode;
 
+// Create asynchronous main function to deploy your contract
 async function main() {
   console.log(`\nAttempting to deploy the ${contractName} contract on ${network.name} from: ${address}\n`);
   // Create new contract object

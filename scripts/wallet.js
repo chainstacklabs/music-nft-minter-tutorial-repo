@@ -42,7 +42,7 @@ const main = async () => {
         console.log(`Copy the following and replace the "PUBLIC_KEY" and "PRIVATE_KEY" lines in your ".env" file:\n\nPUBLIC_KEY="${address}" \nPRIVATE_KEY="${privateKey}"\n`);
         console.log(`Sending ${network.name} faucet request for address ${address}...\n`);
         const fundResponse = await fundWallet(address, apiKey);
-        console.log(`Wallet funded successfully: ${fundResponse}\n`);
+        console.log(`Successfully funded ${address} on ${network.name} for ${fundResponse.amountSent}ETH.\n\nView transaction on Etherscan: ${fundResponse.transaction}\n`);
     } catch (error) {
         console.error('An error occurred:', error.response.data);
     }
