@@ -4,37 +4,37 @@ const fs = require('fs');
 const axios = require('axios');
 const FormData = require('form-data');
 
-// Define the media files to be uploaded
+// Define the media files to be pinned
 const content = [
   {
-    file: fs.createReadStream("./src/(Sample) My First Music NFT Cover.png"),
-    title: "(Sample) My First Music NFT Cover.png"
+    file: fs.createReadStream("./src/(Tutorial) My First Music NFT Cover.png"),
+    title: "(Tutorial) My First Music NFT Cover.png"
   },
   {
-    file: fs.createReadStream("./src/(Sample) PetarISFire - Chainstackwave.mp3"),
-    title: "(Sample) PetarISFire - Chainstackwave.mp3"
+    file: fs.createReadStream("./src/(Tutorial) PetarISFire - Chainstackwave.mp3"),
+    title: "(Tutorial) PetarISFire - Chainstackwave.mp3"
   }
 ];
 
-// Define a function to upload files to IPFS via the Chainstack API
+// Define a function to pin files with Chainstack IPFS Storage
 const addFiles = async (source, single = false) => {
 
-  // Differentiate between uploading single and multiple files
+  // Differentiate between pinning single and multiple files
   const url = single
     ? "https://api.chainstack.com/v1/ipfs/pins/pinfile"
     : "https://api.chainstack.com/v1/ipfs/pins/pinfiles";
 
-  // Define the upload metadata
+  // Define the pin metadata
   const data = new FormData();
   if (single) {
-    console.log(`Attempting to upload ${JSON.stringify(source[0].title)} to Chainstack IPFS...\n`);
+    console.log(`Attempting to pin ${JSON.stringify(source[0].title)} with Chainstack IPFS Storage...\n`);
     data.append('bucket_id', process.env.BUCKET_ID);
     data.append('folder_id', process.env.FOLDER_ID);
     data.append('file', source[0].file);
     data.append('title', source[0].title);
   } else {
     source.forEach((file) => {
-      console.log(`Attempting to upload ${JSON.stringify(file.title)} to Chainstack IPFS...\n`);
+      console.log(`Attempting to pin ${JSON.stringify(file.title)} with Chainstack IPFS Storage...\n`);
       data.append('bucket_id', process.env.BUCKET_ID);
       data.append('folder_id', process.env.FOLDER_ID);
       data.append('file', file.file);
@@ -57,16 +57,16 @@ const addFiles = async (source, single = false) => {
   // Store the Axios response
   const response = await axios(config);
   if (single) {
-    console.log(`File successfully uploaded to Chainstack IPFS with public ID: ${response.data.id}\n`);
+    console.log(`File successfully pinned with Chainstack IPFS Storage using public ID: ${response.data.id}\n`);
     return JSON.stringify(response.data.id);
   } else {
     const pubIDs = response.data.map((item) => item.id);
-    console.log(`Files successfully uploaded to Chainstack IPFS with public IDs: ${pubIDs.join(', ')}\n`);
+    console.log(`Files successfully pinned with Chainstack IPFS Storage using public ID: ${pubIDs.join(', ')}\n`);
     return pubIDs;
   }
 };
 
-// Define a function to find CIDs for files uploaded to IPFS
+// Define a function to find CIDs for files pinned with Chainstack IPFS Storage
 const findCIDs = async (fileID, single = false) => {
   if (single) {
     fileID = fileID.replace(/"/g, '');
@@ -81,7 +81,7 @@ const findCIDs = async (fileID, single = false) => {
     let cid = [];
     let name = [];
 
-    // Loop through all the uploaded files
+    // Loop through all the pinned files
     for (var i = 0; i < fileID.length; i++) {
 
       // Get the CID and filename for the file
@@ -101,7 +101,7 @@ const findCIDs = async (fileID, single = false) => {
     // Set up the retry loop
     while (retries < maxRetries) {
       try {
-        console.log(`Attempting to find CID via public ID: ${fileID} on Chainstack IPFS...\n`);
+        console.log(`Attempting to find CID via public ID: ${fileID} with Chainstack IPFS...\n`);
 
         // Define the Axios configuration
         const url = "https://api.chainstack.com/v1/ipfs/pins/" + fileID;
@@ -144,15 +144,15 @@ const findCIDs = async (fileID, single = false) => {
 };
 
 // Define a function to write the metadata to a .json file
-const writeJSON = async (uploadCID, uploadName) => {
+const writeJSON = async (pinCID, pinName) => {
   let audioIPFS;
   let coverIPFS;
-  if (uploadCID && uploadName) {
-    for (var i = 0; i < uploadName.length; i++) {
-      if (uploadName[i].includes('mp3')) {
-        audioIPFS = "https://ipfsgw.com/ipfs/" + uploadCID[i];
+  if (pinCID && pinName) {
+    for (var i = 0; i < pinName.length; i++) {
+      if (pinName[i].includes('mp3')) {
+        audioIPFS = "https://ipfsgw.com/ipfs/" + pinCID[i];
       } else {
-        coverIPFS = "https://ipfsgw.com/ipfs/" + uploadCID[i];
+        coverIPFS = "https://ipfsgw.com/ipfs/" + pinCID[i];
       }
     }
 
@@ -176,28 +176,28 @@ const writeJSON = async (uploadCID, uploadName) => {
   }
 };
 
-// Define the main function that executes all necessary functions to upload the NFT metadata
-const uploadNFT = async () => {
+// Define the main function that executes all necessary functions to pin the NFT metadata
+const pinNFT = async () => {
   try {
     const ids = await addFiles(content);
     await new Promise((resolve) => setTimeout(resolve, 5000));
 
-    const [uploadCID, uploadName] = await findCIDs(ids);
+    const [pinCID, pinName] = await findCIDs(ids);
     await new Promise((resolve) => setTimeout(resolve, 5000));
 
-    const jsonMeta = await writeJSON(uploadCID, uploadName);
+    const jsonMeta = await writeJSON(pinCID, pinName);
     await new Promise((resolve) => setTimeout(resolve, 5000));
 
     const id = await addFiles([jsonMeta], true);
     await new Promise((resolve) => setTimeout(resolve, 5000));
 
     const jsonCID = await findCIDs(id, true);
-    console.log(`NFT metadata successfully uploaded to Chainstack IPFS!\n`);
+    console.log(`NFT metadata successfully pinned with Chainstack IPFS Storage!\n`);
     console.log(`Copy this line to your "mint.js" script file:\n\nconst metadata = "https://ipfsgw.com/ipfs/${jsonCID[0]}"\n`);
   } catch (error) {
-    console.error(`Error during NFT upload: ${error.message}`);
+    console.error(`Error during NFT pinning: ${error.message}`);
   }
 };
 
 // Don't forget to run the main function!
-uploadNFT();
+pinNFT();

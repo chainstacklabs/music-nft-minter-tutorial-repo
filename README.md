@@ -22,10 +22,10 @@
 </p>
 
 # Music NFT minter tutorial [![using with dotenv-vault](https://badge.dotenv.org/using.svg?r=1)](https://www.dotenv.org/r/github.com/motdotla/dotenv?r=1)
-This project contains all tutorial files from the [How to mint a music NFT: Dropping fire tunes with Chainstack IPFS](https://chainstack.com/how-to-mint-music-nft/) tutorial, originally published on the [Chainstack blog](https://chainstack.com/blog/).
+This project contains all tutorial files from the [How to mint a music NFT: Dropping fire tunes with Chainstack IPFS Storage](https://docs.chainstack.com/docs/how-to-mint-music-nft-with-chainstack-ipfs-storage/) tutorial, originally published on the [Chainstack Developer Portal: Web3 [De]Coded](https://docs.chainstack.com/docs/web3-decoded-introduction).
 
 ## Project details
-This repository contains scripts and contracts needed to create a new wallet, check its balance, compile an NFT contract, and mint music NFTs using pre-set metadata on the Ethereum network with [Chainstack IPFS](https://chainstack.com/ipfs-storage/), Hardhat and Web3js.
+This repository contains scripts and contracts needed to create a new wallet, check its balance, compile an NFT contract, and mint music NFTs using pre-set metadata on the Ethereum network with [Chainstack IPFS Storage](https://chainstack.com/ipfs-storage/), Hardhat and Web3js.
 
 ## Outcomes
 * [Contract: Goerli](https://goerli.etherscan.io/address/0x7d8c7C54d98D533Af176DE1a0e280898E55537eb)
@@ -83,13 +83,13 @@ npx hardhat run scripts/balance.js --network $NETWORK
 npx hardhat run scripts/deploy.js --network $NETWORK  
 ```
 
-7. Upload all media files and JSON metadata to Chainstack IPFS by running in CLI:  
+7. Pin all media files and JSON metadata with Chainstack IPFS Storage by running in CLI:  
 
 ```sh
-npx hardhat run scripts/upload.js  
+npx hardhat run scripts/pin.js  
 ```
 
-8. Mint an NFT with the metadata from the uploaded JSON file by running in CLI:  
+8. Mint an NFT with the metadata from the pinned JSON file by running in CLI:  
 
 ```sh
 npx hardhat run scripts/mint.js --network $NETWORK  
@@ -102,5 +102,5 @@ npx hardhat run scripts/mint.js --network $NETWORK
 * scripts/wallet.js - Script to generate a wallet address and key pair
 * scripts/balance.js - Script to check the balance of a wallet address
 * scripts/deploy.js - Script to deploy the NFT minter smart contract from the ABI & BIN files
-* scripts/upload.js - Script to upload relevant media files and JSON metadata to Chainstack IPFS
-* scripts/mint.js - Script to mint an NFT with the metadata from uploaded JSON metadata file
+* scripts/pin.js - Script to pin relevant media files and JSON metadata with Chainstack IPFS Storage
+* scripts/mint.js - Script to mint an NFT with the metadata from pinned JSON metadata file
