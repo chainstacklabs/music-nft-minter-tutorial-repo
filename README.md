@@ -61,7 +61,7 @@ npm ci
 GOERLI="https://your-goerli-endpoint-here"
 SEPOLIA="https://your-sepolia-endpoint-here"
 MAINNET="https://your-mainnet-endpoint-here"
-CHAINSTACK_JWT="Bearer y0urChainstackAPIkeyHer3"
+CHAINSTACK="Bearer y0urChainstackAPIkeyHer3"
 ETHERSCAN="Y0URETHERSCANAPIKEYHER3"
 ```
 
