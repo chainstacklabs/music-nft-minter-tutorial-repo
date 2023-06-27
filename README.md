@@ -46,7 +46,7 @@ This repository contains scripts and contracts needed to create a new wallet, ch
 1. Clone or fork this repo to a preferred location by running in CLI:  
 
 ```
-git clone https://github.com/petarsrepo/music-nft-minter-tutorial-repo.git  
+git clone https://github.com/chainstacklabs/music-nft-minter-tutorial-repo.git  
 ```
 
 2. Install dependencies by running in CLI:  
