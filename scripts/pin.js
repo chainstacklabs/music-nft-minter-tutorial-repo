@@ -101,7 +101,7 @@ const findCIDs = async (fileID, single = false) => {
     // Set up the retry loop
     while (retries < maxRetries) {
       try {
-        console.log(`Attempting to find CID via public ID: ${fileID} with Chainstack IPFS...\n`);
+        console.log(`Attempting to find CID using public ID: ${fileID} with Chainstack IPFS Storage...\n`);
 
         // Define the Axios configuration
         const url = "https://api.chainstack.com/v1/ipfs/pins/" + fileID;
