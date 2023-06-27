@@ -48,7 +48,7 @@ const addFiles = async (source, single = false) => {
     url: url,
     headers: {
       "Content-Type": 'multipart/form-data;',
-      "Authorization": process.env.CHAINSTACK_JWT,
+      "Authorization": process.env.CHAINSTACK,
       ...data.getHeaders()
     },
     data: data
@@ -110,7 +110,7 @@ const findCIDs = async (fileID, single = false) => {
           url: url,
           headers: {
             "Content-Type": 'text/plain',
-            "Authorization": process.env.CHAINSTACK_JWT,
+            "Authorization": process.env.CHAINSTACK,
             "Accept-Encoding": 'identity',
           },
           decompress: false 

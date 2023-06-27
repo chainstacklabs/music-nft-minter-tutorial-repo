@@ -32,14 +32,14 @@ const main = async () => {
     try {
 
         // Config for the Faucet API call
-        const apiKey = process.env.CHAINSTACK_JWT;
+        const apiKey = process.env.CHAINSTACK;
 
         console.log('\nAttempting to generate new wallet...\n')
         const [address, privateKey] = await createWallet();
 
         console.log(`Created new wallet with address: ${address}\n`);
         console.log(`New private key: ${privateKey} === KEEP IT SAFE ===\n`);
-        console.log(`Copy the following and replace the "PUBLIC_KEY" and "PRIVATE_KEY" lines in your ".env" file:\n\nPUBLIC_KEY="${address}" \nPRIVATE_KEY="${privateKey}"\n`);
+        console.log(`Copy the following and replace the "WALLET" and "PRIVATE_KEY" lines in your ".env" file:\n\nWALLET="${address}" \nPRIVATE_KEY="${privateKey}"\n`);
         console.log(`Sending ${network.name} faucet request for address ${address}...\n`);
         const fundResponse = await fundWallet(address, apiKey);
         console.log(`Successfully funded ${address} on ${network.name} for ${fundResponse.amountSent}ETH.\n\nView transaction on Etherscan: ${fundResponse.transaction}\n`);

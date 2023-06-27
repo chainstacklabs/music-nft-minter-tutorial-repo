@@ -3,7 +3,7 @@ require('dotenv').config();
 require("@nomiclabs/hardhat-web3");
 
 // Initialize your wallet address
-const address = process.env.PUBLIC_KEY;
+const address = process.env.WALLET;
 
 // Define your get balance function
 const getbal = async (address) => {

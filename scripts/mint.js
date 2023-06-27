@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Initialize your wallet address and private key
-const address = process.env.PUBLIC_KEY;
+const address = process.env.WALLET;
 const privKey = process.env.PRIVATE_KEY;
 
 // Initialize your deployed smart contract address for the selected network

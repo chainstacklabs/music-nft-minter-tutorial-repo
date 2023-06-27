@@ -4,7 +4,7 @@ require("@nomiclabs/hardhat-web3");
 require("@nomicfoundation/hardhat-verify");
 const fs = require('fs');
 const path = require('path');
-const address = process.env.PUBLIC_KEY;
+const address = process.env.WALLET;
 const privKey = process.env.PRIVATE_KEY;
 
 // Replace 'MyFirstMusicNFT' with your contract's name.
