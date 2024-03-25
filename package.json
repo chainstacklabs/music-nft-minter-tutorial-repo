@@ -10,6 +10,6 @@
   "devDependencies": {
     "@nomicfoundation/hardhat-verify": "^1.0.1",
     "@nomiclabs/hardhat-web3": "^2.0.0",
-    "web3": "^1.10.0"
+    "web3": "^4.6.0"
   }
 }
