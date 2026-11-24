@@ -5,27 +5,27 @@
 </p>
 
 <p align="center">
-  <a target="_blank" href="https://chainstack.com/build-better-with-ethereum/"><img src="https://github.com/soos3d/blockchain-badges/blob/main/protocols_badges/Ethereum.svg" /></a>&nbsp;  
-  <a target="_blank" href="https://chainstack.com/build-better-with-bnb-smart-chain/"><img src="https://github.com/soos3d/blockchain-badges/blob/main/protocols_badges/BNB.svg" /></a>&nbsp;
-  <a target="_blank" href="https://chainstack.com/build-better-with-polygon/"><img src="https://github.com/soos3d/blockchain-badges/blob/main/protocols_badges/Polygon.svg" /></a>&nbsp;
-  <a target="_blank" href="https://chainstack.com/build-better-with-avalanche/"><img src="https://github.com/soos3d/blockchain-badges/blob/main/protocols_badges/Avalanche.svg" /></a>&nbsp;
-  <a target="_blank" href="https://chainstack.com/build-better-with-fantom/"><img src="https://github.com/soos3d/blockchain-badges/blob/main/protocols_badges/Fantom.svg" /></a>&nbsp;
+  <a target="_blank" href="https://chainstack.com/build-better-with-ethereum/?utm_source=github&utm_medium=referral&utm_campaign=music-nft-minter-tutorial-repo"><img src="https://github.com/soos3d/blockchain-badges/blob/main/protocols_badges/Ethereum.svg" /></a>&nbsp;  
+  <a target="_blank" href="https://chainstack.com/build-better-with-bnb-smart-chain/?utm_source=github&utm_medium=referral&utm_campaign=music-nft-minter-tutorial-repo"><img src="https://github.com/soos3d/blockchain-badges/blob/main/protocols_badges/BNB.svg" /></a>&nbsp;
+  <a target="_blank" href="https://chainstack.com/build-better-with-polygon/?utm_source=github&utm_medium=referral&utm_campaign=music-nft-minter-tutorial-repo"><img src="https://github.com/soos3d/blockchain-badges/blob/main/protocols_badges/Polygon.svg" /></a>&nbsp;
+  <a target="_blank" href="https://chainstack.com/build-better-with-avalanche/?utm_source=github&utm_medium=referral&utm_campaign=music-nft-minter-tutorial-repo"><img src="https://github.com/soos3d/blockchain-badges/blob/main/protocols_badges/Avalanche.svg" /></a>&nbsp;
+  <a target="_blank" href="https://chainstack.com/build-better-with-fantom/?utm_source=github&utm_medium=referral&utm_campaign=music-nft-minter-tutorial-repo"><img src="https://github.com/soos3d/blockchain-badges/blob/main/protocols_badges/Fantom.svg" /></a>&nbsp;
 </p>
 
 <p align="center">
-  • <a target="_blank" href="https://chainstack.com/">Homepage</a> •
-  <a target="_blank" href="https://chainstack.com/protocols/">Supported protocols</a> •
-  <a target="_blank" href="https://chainstack.com/blog/">Chainstack blog</a> •
-  <a target="_blank" href="https://docs.chainstack.com/quickstart/">Chainstack docs</a> •
-  <a target="_blank" href="https://api.chainstack.com/reference/">Blockchain API reference</a><br> •
-  <a target="_blank" href="https://console.chainstack.com/user/account/create">Start for free</a> •
+  • <a target="_blank" href="https://chainstack.com/?utm_source=github&utm_medium=referral&utm_campaign=music-nft-minter-tutorial-repo">Homepage</a> •
+  <a target="_blank" href="https://chainstack.com/protocols/?utm_source=github&utm_medium=referral&utm_campaign=music-nft-minter-tutorial-repo">Supported protocols</a> •
+  <a target="_blank" href="https://chainstack.com/blog/?utm_source=github&utm_medium=referral&utm_campaign=music-nft-minter-tutorial-repo">Chainstack blog</a> •
+  <a target="_blank" href="https://docs.chainstack.com/docs/platform-introduction?utm_source=github&utm_medium=referral&utm_campaign=music-nft-minter-tutorial-repo">Chainstack docs</a> •
+  <a target="_blank" href="https://docs.chainstack.com/reference/platform-api-getting-started?utm_source=github&utm_medium=referral&utm_campaign=music-nft-minter-tutorial-repo">Blockchain API reference</a><br> •
+  <a target="_blank" href="https://console.chainstack.com/sign-up?utm_source=github&utm_medium=referral&utm_campaign=music-nft-minter-tutorial-repo">Start for free</a> •
 </p>
 
 # Music NFT minter tutorial [![using with dotenv-vault](https://badge.dotenv.org/using.svg?r=1)](https://www.dotenv.org/r/github.com/motdotla/dotenv?r=1)
-This project contains all tutorial files from the [How to mint a music NFT: Dropping fire tunes with Chainstack IPFS Storage](https://docs.chainstack.com/docs/how-to-mint-music-nft-with-chainstack-ipfs-storage/) tutorial, originally published on the [Chainstack Developer Portal: Web3 [De]Coded](https://docs.chainstack.com/docs/web3-decoded-introduction).
+This project contains all tutorial files from the [How to mint a music NFT: Dropping fire tunes with Chainstack IPFS Storage](https://docs.chainstack.com/docs/how-to-mint-music-nft-with-chainstack-ipfs-storage/?utm_source=github&utm_medium=referral&utm_campaign=music-nft-minter-tutorial-repo) tutorial, originally published on the [Chainstack Developer Portal: Web3 [De]Coded](https://docs.chainstack.com/docs/web3-decoded-introduction?utm_source=github&utm_medium=referral&utm_campaign=music-nft-minter-tutorial-repo).
 
 ## Project details
-This repository contains scripts and contracts needed to create a new wallet, check its balance, compile an NFT contract, and mint music NFTs using pre-set metadata on the Ethereum network with [Chainstack IPFS Storage](https://chainstack.com/ipfs-storage/), Hardhat and Web3js.
+This repository contains scripts and contracts needed to create a new wallet, check its balance, compile an NFT contract, and mint music NFTs using pre-set metadata on the Ethereum network with [Chainstack IPFS Storage](https://chainstack.com/ipfs-storage/?utm_source=github&utm_medium=referral&utm_campaign=music-nft-minter-tutorial-repo), Hardhat and Web3js.
 
 ## Outcomes
 * [Contract: Goerli](https://goerli.etherscan.io/address/0x7d8c7C54d98D533Af176DE1a0e280898E55537eb)
@@ -35,7 +35,7 @@ This repository contains scripts and contracts needed to create a new wallet, ch
 * [OpenSea](https://testnets.opensea.io/assets/goerli/0x7d8c7c54d98d533af176de1a0e280898e55537eb/0)  
 
 ## Dependencies
-* [Chainstack endpoint](https://console.chainstack.com/user/account/create)  
+* [Chainstack endpoint](https://console.chainstack.com/sign-up?utm_source=github&utm_medium=referral&utm_campaign=music-nft-minter-tutorial-repo)  
 * [Dotenv](https://github.com/motdotla/dotenv)  
 * [Hardhat with Web3js](https://github.com/NomicFoundation/hardhat/tree/main/packages/hardhat-web3)  
 * [OpenZeppelin contracts](https://github.com/OpenZeppelin/openzeppelin-contracts)  
